@@ -1,8 +1,8 @@
-# README
+# Anggota Kelompok
 
-Berkas: `Projek_Akhir_Data_Science.ipynb`
-Lingkup: Business Understanding, Data Gathering, Data Understanding, Exploratory Data
-Analysis, Data Cleaning, dan Data Preprocessing.
+Anggota Kelompok :
+Abdillah Abhipraya (123240004)  •  Radja Azhara Indra Kusuma (123240012)
+Ari Satriya Dinata (123240018)  •  Muhammad Afif Pratama Nugraha (123240031)
 
 ## Status
 
