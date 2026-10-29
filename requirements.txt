@@ -1,6 +1,6 @@
 # Lingkungan acuan: Python 3.14.7, kernel ipykernel 7.3.0
 # Versi di bawah adalah versi yang benar-benar dipakai saat notebook dieksekusi
-# end-to-end tanpa galat (lihat README_Revisi_Notebook.md).
+# end-to-end tanpa galat (lihat README.md).
 
 pandas==2.3.3
 numpy==2.5.2

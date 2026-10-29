@@ -1,7 +1,7 @@
-# README Revisi Notebook
+# README
 
 Berkas: `Projek_Akhir_Data_Science.ipynb`
-Lingkup revisi: Business Understanding, Data Gathering, Data Understanding, Exploratory Data
+Lingkup: Business Understanding, Data Gathering, Data Understanding, Exploratory Data
 Analysis, Data Cleaning, dan Data Preprocessing.
 
 ## Status
@@ -180,4 +180,4 @@ Berkas tersebut dihasilkan ulang setiap kali notebook dijalankan.
    tidak divalidasi terhadap catatan lapangan, karena data pembanding tidak tersedia.
 3. Horizon efektif target bervariasi akibat grid tanggal yang tidak lengkap.
 4. Notebook berhenti pada tahap praproses. Pemodelan, evaluasi, dan perbandingan baseline belum
-   termasuk dalam lingkup revisi ini.
+   termasuk dalam lingkup proyek ini.
