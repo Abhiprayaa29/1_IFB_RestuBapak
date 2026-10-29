@@ -1,0 +1,7 @@
+Komoditas,harga_terendah,provinsi_terendah,harga_tertinggi,provinsi_tertinggi,rasio_maks_min,selisih_pct
+beras,12330.527511915876,Nusa Tenggara Barat,17301.26491518987,Kalimantan Tengah,1.4,40.0
+cabai_rawit,37320.848114895634,Jawa Timur,91383.56341352816,Kalimantan Utara,2.45,145.0
+bawang_merah,31030.71485292298,Nusa Tenggara Barat,59311.33124288568,Maluku Utara,1.91,91.0
+daging_sapi,107950.750417549,Kepulauan Riau,158140.396837305,Kalimantan Selatan,1.46,46.0
+minyak_goreng,17552.62053073788,Kepulauan Riau,24937.966086213433,Gorontalo,1.42,42.0
+telur_ayam,25439.481089684003,Sulawesi Selatan,38652.284359232646,Papua,1.52,52.0

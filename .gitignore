@@ -1,0 +1,11 @@
+# Dataset besar yang dapat dihasilkan ulang
+output/processed/pihps_siap_model.parquet
+
+# Sisa eksekusi Jupyter
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# Berkas sistem
+.DS_Store
+Thumbs.db

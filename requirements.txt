@@ -1,0 +1,14 @@
+# Lingkungan acuan: Python 3.14.7, kernel ipykernel 7.3.0
+# Versi di bawah adalah versi yang benar-benar dipakai saat notebook dieksekusi
+# end-to-end tanpa galat (lihat README_Revisi_Notebook.md).
+
+pandas==2.3.3
+numpy==2.5.2
+matplotlib==3.11.1
+pyarrow==25.0.1
+
+# Hanya dibutuhkan untuk menjalankan ulang notebook dari baris perintah
+nbformat==5.11.1
+nbclient==0.11.0
+jupyter_client==8.10.0
+ipykernel==7.3.0

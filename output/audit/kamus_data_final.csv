@@ -1,0 +1,29 @@
+kolom,tipe,keterangan
+tanggal,date,Tanggal observasi
+kanal_pasar,category,"Kanal pasar: produsen, pasar_tradisional, pasar_modern"
+komoditas,category,Nama komoditas pangan
+provinsi,category,Provinsi di Indonesia
+harga_mentah,float,"Harga asli dari berkas sumber, tanpa perubahan"
+harga_bersih,float,Harga setelah koreksi orde besaran dan karantina ramp
+target_h7,float,Harga tujuh hari setelah tanggal observasi
+lag_7,float,Harga tujuh hari sebelumnya
+lag_14,float,Harga empat belas hari sebelumnya
+lag_30,float,Harga tiga puluh hari sebelumnya
+ma_7,float,"Rata-rata bergerak 7 hari, digeser 7 hari"
+ma_14,float,"Rata-rata bergerak 14 hari, digeser 7 hari"
+ma_30,float,"Rata-rata bergerak 30 hari, digeser 7 hari"
+std_7,float,"Simpangan baku bergerak 7 hari, digeser 7 hari"
+std_30,float,"Simpangan baku bergerak 30 hari, digeser 7 hari"
+month_sin,float,"Transformasi siklikal bulan, komponen sinus"
+month_cos,float,"Transformasi siklikal bulan, komponen kosinus"
+dow_sin,float,"Transformasi siklikal hari dalam pekan, komponen sinus"
+dow_cos,float,"Transformasi siklikal hari dalam pekan, komponen kosinus"
+masa_panen,int,Penanda bulan panen (Maret sampai Juni)
+bulan,int,Bulan 1 sampai 12
+minggu,int,Nomor pekan dalam tahun
+is_dikoreksi,bool,Penanda sel yang dikoreksi karena kesalahan orde besaran
+is_karantina,bool,Penanda sel yang dikarantina karena ramp interpolasi
+is_outlier_iqr,bool,Penanda outlier IQR (nilai dipertahankan)
+is_desimal,bool,"Penanda nilai desimal, indikasi imputasi hulu"
+is_ffill_akhir_pekan,bool,Penanda akhir pekan yang identik dengan hari sebelumnya
+split,category,"Himpunan data: train, validasi, uji"
