@@ -181,3 +181,4 @@ Berkas tersebut dihasilkan ulang setiap kali notebook dijalankan.
 3. Horizon efektif target bervariasi akibat grid tanggal yang tidak lengkap.
 4. Notebook berhenti pada tahap praproses. Pemodelan, evaluasi, dan perbandingan baseline belum
    termasuk dalam lingkup proyek ini.
+5. Batasan hanya sampai analisa dan hasil prediksi
