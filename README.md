@@ -2,7 +2,7 @@
 
 Anggota Kelompok :
 Abdillah Abhipraya (123240004)  •  Radja Azhara Indra Kusuma (123240012)
-Ari Satriya Dinata (123240018)  •  
+Ari Satriya Dinata (123240018)  
 
 ## Status
 
