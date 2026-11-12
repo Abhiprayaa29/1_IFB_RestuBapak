@@ -6,10 +6,9 @@ Ari Satriya Dinata (123240018)  •  Muhammad Afif Pratama Nugraha (123240031)
 
 ## Status
 
-Notebook sudah dieksekusi end-to-end tanpa galat pada Python 3.14.7, kernel `python3`, dengan
-`nbclient` (tanpa `allow_errors`). Durasi eksekusi sekitar 26 detik. Jumlah sel: 81, terdiri dari 39
-sel markdown dan 42 sel kode. Seluruh keluaran, tabel, dan gambar tersimpan di dalam notebook,
-bukan hasil tempat lain yang ditempel.
+Notebook sudah dieksekusi ulang end-to-end tanpa galat pada Python 3.13.2, kernel `python3`, dengan
+`nbclient` (tanpa `allow_errors`). Notebook kini memuat 90 sel. Seluruh keluaran, tabel, dan gambar
+tersimpan di dalam notebook serta berkas audit/visualisasi terkait di folder `output/`.
 
 Jalankan ulang dari folder ini agar path relatif `data_komoditas_pangan/` dan `output/` tetap valid:
 
@@ -30,9 +29,12 @@ PY
 
 ## Sumber data
 
-Data diunduh dari Kaggle (`muhyusuf1112/indonesia-commodity-price-based-piphs-source`) dan
-disimpan sebagai `archive.zip` berukuran 1.117.287 byte (1,12 MB) terkompresi, dengan total isi tidak terkompresi 12.240.348 byte. Arsip berisi 31 entri, yaitu 30
-berkas CSV dan satu direktori `.ipynb_checkpoints` yang diabaikan.
+Data diunduh dari Kaggle (`muhyusuf1112/indonesia-commodity-price-based-piphs-source`, pemilik
+Muh.Yusuf; versi 2) dan disimpan sebagai `archive.zip` berukuran 1.117.287 byte (1,12 MB)
+terkompresi, dengan total isi tidak terkompresi 12.240.348 byte. Arsip berisi 31 entri: 30 berkas
+CSV dan satu direktori `.ipynb_checkpoints` yang diabaikan. Metadata Kaggle mencantumkan lisensi
+MIT; sumber asal yang dinyatakan adalah PIHPS Nasional, Bank Indonesia. Atribusi dan tautan
+dicantumkan di Bagian B.1 notebook.
 
 Struktur:
 
@@ -144,6 +146,8 @@ Perbedaan dicatat terbuka, bukan disembunyikan.
 
 ```
 output/figures/
+  fig_d3_sebelum_sesudah_cleaning.png
+  fig_e1_fitur_vs_target_h7.png
   fig_b1_kelengkapan_provinsi.png
   fig_b2_pengisian_akhir_pekan.png
   fig_c1_harga_antarkanal.png
@@ -155,6 +159,9 @@ output/figures/
   fig_d2_anomali_ramp.png
 
 output/audit/
+  column_quality_report.csv  # missing pascapembersihan, outlier IQR, duplikat kunci per kolom
+  korelasi_fitur_target_h7.csv
+  feature_selection_h7.csv
   data_inventory.csv
   data_quality_report.csv
   anomali_orde_besaran.csv
@@ -167,6 +174,7 @@ output/audit/
 output/processed/
   _panel_raw.parquet          # panel sebelum pembersihan, 1.354.641 baris
   pihps_siap_model.parquet    # 1.320.376 baris x 28 kolom, siap dilatih
+  preprocessor_h7.joblib    # one-hot kategori + StandardScaler, fit pada train saja
 ```
 
 `pihps_siap_model.parquet` berukuran sekitar 45 MB, sehingga tidak disertakan di repositori.
@@ -179,6 +187,26 @@ Berkas tersebut dihasilkan ulang setiap kali notebook dijalankan.
 2. Koreksi R1 dan karantina R2 memakai ambang heuristik yang dinyatakan terbuka. Ambang tersebut
    tidak divalidasi terhadap catatan lapangan, karena data pembanding tidak tersedia.
 3. Horizon efektif target bervariasi akibat grid tanggal yang tidak lengkap.
-4. Notebook berhenti pada tahap praproses. Pemodelan, evaluasi, dan perbandingan baseline belum
-   termasuk dalam lingkup proyek ini.
+4. Notebook kini menyelesaikan audit, EDA, cleaning, feature selection, dan preprocessing.
+   Pemodelan, evaluasi, dan perbandingan baseline masih belum dilakukan.
 5. Batasan hanya sampai analisa dan hasil prediksi
+
+## Progress Presentasi
+
+Lembar **Progress 1 - Presentasi Proyek Akhir Data Science** tersedia di `output/Progress_1_Presentasi_Proyek_Akhir_Data_Science.xlsx`. Ke-14 capaian pertama sudah dilengkapi dan ditautkan ke bukti notebook/output. Untuk capaian preprocessing, status `Selesai*` berarti encoding dan scaling telah di-fit pada train; penanganan imbalance tidak berlaku karena target kontinu (regresi). Pemodelan dan evaluasi berada di luar 14 capaian ini dan belum dilakukan.
+
+
+## Ringkasan Pemenuhan 14 Capaian
+
+1. **Sumber dan lisensi:** Kaggle versi 2, pengunggah Muh.Yusuf; lisensi metadata MIT, sumber asal PIHPS/BI (Bagian B.1).
+2. **Data dictionary:** tipe, makna, dan satuan tercatat (Bagian B.5; `output/audit/kamus_data_final.csv`).
+3. **Kualitas data:** sumber mentah tidak memiliki nilai kosong dan duplikat kunci; audit outlier tersedia.
+4–7. **EDA, representativitas, statistik, dan visualisasi:** Bagian B.7–B.8/C, termasuk grafik target H+7.
+8. **Korelasi fitur-target:** dihitung di dalam tiap deret pada train; median `lag_7` 0,856, `ma_7` 0,832, `ma_14` 0,802; `lag_7` positif di 100% deret.
+9. **Audit kolom:** nol duplikat kunci; 28.032 penanda outlier IQR; 40 missing baru setelah karantina (0,003% dari panel).
+10–11. **Cleaning dan before-after:** 14 koreksi orde besaran, 40 nilai dikarantina, visual perbandingan tersedia.
+12. **Preprocessing:** delapan fitur numerik, one-hot kategori, StandardScaler di-fit hanya pada train; imbalance tidak berlaku pada regresi kontinu.
+13. **Split:** kronologis 70/15/15 pada tanggal unik, tanpa tumpang tindih.
+14. **Feature selection:** delapan fitur dipilih menggunakan korelasi dalam-deret pada train; tabel bukti disimpan.
+
+Detail lengkap tiap butir ada di lembar progres dan notebook.

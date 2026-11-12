@@ -1,0 +1,22 @@
+kolom,tipe,nilai_kosong,persen_kosong,outlier_iqr,duplikat_record_kunci_panel,nilai_unik,catatan
+Date,datetime64[us],0,0.0,,0,1493,Duplikat record diperiksa dengan kunci panel.
+Kanal_Pasar,category,0,0.0,,0,3,Duplikat record diperiksa dengan kunci panel.
+Komoditas,category,0,0.0,,0,10,Duplikat record diperiksa dengan kunci panel.
+Provinsi,str,0,0.0,,0,34,Duplikat record diperiksa dengan kunci panel.
+Satuan,str,0,0.0,,0,2,Duplikat record diperiksa dengan kunci panel.
+Harga,float64,0,0.0,28032,0,31006,Pengulangan nilai harga bukan duplikat record.
+is_desimal,bool,0,0.0,,0,2,Duplikat record diperiksa dengan kunci panel.
+roll_med,float64,0,0.0,,0,21209,Duplikat record diperiksa dengan kunci panel.
+pow_k,int64,0,0.0,,0,2,Duplikat record diperiksa dengan kunci panel.
+harga_koreksi,float64,0,0.0,,0,31005,Duplikat record diperiksa dengan kunci panel.
+is_orde_besaran,bool,0,0.0,,0,2,Duplikat record diperiksa dengan kunci panel.
+is_outlier_iqr,bool,0,0.0,,0,2,Duplikat record diperiksa dengan kunci panel.
+dow,int32,0,0.0,,0,7,Duplikat record diperiksa dengan kunci panel.
+identik_sebelumnya,bool,0,0.0,,0,2,Duplikat record diperiksa dengan kunci panel.
+tahun,int32,0,0.0,,0,5,Duplikat record diperiksa dengan kunci panel.
+bulan,int32,0,0.0,,0,12,Duplikat record diperiksa dengan kunci panel.
+Harga_bersih,float64,40,0.00295,28032,0,30977,Pengulangan nilai harga bukan duplikat record.
+is_dikoreksi,bool,0,0.0,,0,2,Duplikat record diperiksa dengan kunci panel.
+is_karantina,bool,0,0.0,,0,2,Duplikat record diperiksa dengan kunci panel.
+is_akhir_pekan,bool,0,0.0,,0,2,Duplikat record diperiksa dengan kunci panel.
+is_ffill_akhir_pekan,bool,0,0.0,,0,2,Duplikat record diperiksa dengan kunci panel.

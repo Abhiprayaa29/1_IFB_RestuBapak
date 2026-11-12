@@ -1,11 +1,12 @@
-# Lingkungan acuan: Python 3.14.7, kernel ipykernel 7.3.0
-# Versi di bawah adalah versi yang benar-benar dipakai saat notebook dieksekusi
-# end-to-end tanpa galat (lihat README.md).
+# Lingkungan yang diuji: Python 3.13.2, kernel ipykernel 7.3.0
+# Versi paket dipin pada lingkungan yang berhasil mengeksekusi notebook end-to-end.
 
-pandas==2.3.3
-numpy==2.5.2
-matplotlib==3.11.1
-pyarrow==25.0.1
+pandas==3.0.2
+numpy==2.4.4
+matplotlib==3.10.9
+pyarrow==23.0.1
+scikit-learn==1.9.1
+joblib==1.6.0
 
 # Hanya dibutuhkan untuk menjalankan ulang notebook dari baris perintah
 nbformat==5.11.1
