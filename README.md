@@ -7,23 +7,40 @@ Ari Satriya Dinata (123240018)
 ## Status
 
 Notebook sudah dieksekusi ulang end-to-end tanpa galat pada Python 3.13.2, kernel `python3`, dengan
-`nbclient` (tanpa `allow_errors`). Notebook kini memuat 90 sel. Seluruh keluaran, tabel, dan gambar
-tersimpan di dalam notebook serta berkas audit/visualisasi terkait di folder `output/`.
+`nbclient` (tanpa `allow_errors`). Notebook kini memuat 100 sel yang mencakup seluruh materi
+silabus Praktikum Data Science (Modul I sampai IX) secara lengkap hingga Bagian I (Kesimpulan dan
+Rekomendasi Kebijakan). Seluruh keluaran, tabel, dan gambar tersimpan di dalam notebook serta berkas
+audit/visualisasi terkait di folder `output/`.
 
-Jalankan ulang dari folder ini agar path relatif `data_komoditas_pangan/` dan `output/` tetap valid:
+Jalankan ulang dari folder ini agar path relatif `data_komoditas_pangan/` dan `output/` tetap valid.
+
+### Aktivasi Virtual Environment (`.venv`):
+
+Virtual environment telah dibuat di direktori `.venv/` dan didaftarkan sebagai kernel Jupyter:
+
+- **PowerShell:**
+  ```powershell
+  .\.venv\Scripts\Activate.ps1
+  ```
+- **Command Prompt (CMD):**
+  ```cmd
+  .\.venv\Scripts\activate.bat
+  ```
+- **Di VS Code / Jupyter Notebook:**
+  Pilih kernel: **`Python (RestuBapak IFB)`** atau arahkan interpreter ke `D:\Projects\1_IFB_RestuBapak\.venv\Scripts\python.exe`.
+
+### Eksekusi Ulang Notebook (*Headless* / Otomatis):
 
 ```bash
-pip install -r requirements.txt
-python -m pip install nbclient nbformat          # bila belum ada
-
-python - <<'PY'
+.\.venv\Scripts\python.exe - <<'PY'
 import nbformat
 from nbclient import NotebookClient
 
 path = "Projek_Akhir_Data_Science.ipynb"
 nb = nbformat.read(path, as_version=4)
-NotebookClient(nb, timeout=1800, kernel_name="python3").execute()
+NotebookClient(nb, timeout=1800, kernel_name="restubapak-env").execute()
 nbformat.write(nb, path)
+print("Eksekusi selesai tanpa galat!")
 PY
 ```
 
@@ -146,8 +163,6 @@ Perbedaan dicatat terbuka, bukan disembunyikan.
 
 ```
 output/figures/
-  fig_d3_sebelum_sesudah_cleaning.png
-  fig_e1_fitur_vs_target_h7.png
   fig_b1_kelengkapan_provinsi.png
   fig_b2_pengisian_akhir_pekan.png
   fig_c1_harga_antarkanal.png
@@ -157,19 +172,28 @@ output/figures/
   fig_c5_korelasi.png
   fig_d1_koreksi_orde_besaran.png
   fig_d2_anomali_ramp.png
+  fig_d3_sebelum_sesudah_cleaning.png
+  fig_e1_fitur_vs_target_h7.png
+  fig_f1_elbow_silhouette.png
+  fig_f2_dendrogram_provinsi.png
+  fig_h1_prediksi_vs_aktual_regresi.png
 
 output/audit/
-  column_quality_report.csv  # missing pascapembersihan, outlier IQR, duplikat kunci per kolom
-  korelasi_fitur_target_h7.csv
-  feature_selection_h7.csv
   data_inventory.csv
   data_quality_report.csv
-  anomali_orde_besaran.csv
+  column_quality_report.csv
   deskriptif_komoditas_kanal.csv
   disparitas_wilayah.csv
   korelasi_komoditas.csv
   cleaning_log.csv
+  anomali_orde_besaran.csv
+  korelasi_fitur_target_h7.csv
+  feature_selection_h7.csv
   kamus_data_final.csv
+  clustering_provinsi.csv
+  classification_metrics.csv
+  regression_metrics_h7.csv
+  perbandingan_komoditas_regresi.csv
 
 output/processed/
   _panel_raw.parquet          # panel sebelum pembersihan, 1.354.641 baris
@@ -187,16 +211,14 @@ Berkas tersebut dihasilkan ulang setiap kali notebook dijalankan.
 2. Koreksi R1 dan karantina R2 memakai ambang heuristik yang dinyatakan terbuka. Ambang tersebut
    tidak divalidasi terhadap catatan lapangan, karena data pembanding tidak tersedia.
 3. Horizon efektif target bervariasi akibat grid tanggal yang tidak lengkap.
-4. Notebook kini menyelesaikan audit, EDA, cleaning, feature selection, dan preprocessing.
-   Pemodelan, evaluasi, dan perbandingan baseline masih belum dilakukan.
-5. Batasan hanya sampai analisa dan hasil prediksi
+4. Model time series saat ini berfokus pada fitur autoregresif lag dan kalender; pengembangan
+   lanjutan dapat memasukkan variabel hari raya keagamaan (Idul Fitri/Adha) dan anomali cuaca BMKG.
 
 ## Progress Presentasi
 
-Lembar **Progress 1 - Presentasi Proyek Akhir Data Science** tersedia di `output/Progress_1_Presentasi_Proyek_Akhir_Data_Science.xlsx`. Ke-14 capaian pertama sudah dilengkapi dan ditautkan ke bukti notebook/output. Untuk capaian preprocessing, status `Selesai*` berarti encoding dan scaling telah di-fit pada train; penanganan imbalance tidak berlaku karena target kontinu (regresi). Pemodelan dan evaluasi berada di luar 14 capaian ini dan belum dilakukan.
+Lembar **Progress 1 - Presentasi Proyek Akhir Data Science** tersedia di `output/Progress_1_Presentasi_Proyek_Akhir_Data_Science.xlsx`. Seluruh **18 capaian** telah diselesaikan 100% dan ditautkan ke bukti notebook/output.
 
-
-## Ringkasan Pemenuhan 14 Capaian
+## Ringkasan Pemenuhan 18 Capaian
 
 1. **Sumber dan lisensi:** Kaggle versi 2, pengunggah Muh.Yusuf; lisensi metadata MIT, sumber asal PIHPS/BI (Bagian B.1).
 2. **Data dictionary:** tipe, makna, dan satuan tercatat (Bagian B.5; `output/audit/kamus_data_final.csv`).
@@ -205,8 +227,10 @@ Lembar **Progress 1 - Presentasi Proyek Akhir Data Science** tersedia di `output
 8. **Korelasi fitur-target:** dihitung di dalam tiap deret pada train; median `lag_7` 0,856, `ma_7` 0,832, `ma_14` 0,802; `lag_7` positif di 100% deret.
 9. **Audit kolom:** nol duplikat kunci; 28.032 penanda outlier IQR; 40 missing baru setelah karantina (0,003% dari panel).
 10–11. **Cleaning dan before-after:** 14 koreksi orde besaran, 40 nilai dikarantina, visual perbandingan tersedia.
-12. **Preprocessing:** delapan fitur numerik, one-hot kategori, StandardScaler di-fit hanya pada train; imbalance tidak berlaku pada regresi kontinu.
+12. **Preprocessing:** delapan fitur numerik, one-hot kategori, StandardScaler di-fit hanya pada train; imbalance tidak berlaku pada regresi kontinu, namun ditangani dengan `class_weight='balanced'` pada klasifikasi lonjakan harga.
 13. **Split:** kronologis 70/15/15 pada tanggal unik, tanpa tumpang tindih.
 14. **Feature selection:** delapan fitur dipilih menggunakan korelasi dalam-deret pada train; tabel bukti disimpan.
-
-Detail lengkap tiap butir ada di lembar progres dan notebook.
+15. **Modeling:** Baseline Naive Persistence (`lag_7`), K-Means (Modul IV), Hierarchical Clustering (Modul V), SVM (Modul VI), Random Forest (Modul VII), serta Linear, Ridge, dan LASSO Regression (Modul VIII & IX).
+16. **Evaluasi:** Evaluasi komparatif lengkap pada data uji kronologis (MAE, RMSE, MAPE, R2 untuk regresi; Accuracy, Precision, Recall, F1, ROC-AUC untuk klasifikasi EWS); evaluasi sliced per komoditas.
+17. **Interpretasi:** Segmentasi 3 klaster provinsi (sentra vs konsumen vs kepulauan), analisis trade-off recall pada early warning system pangan, dan analisis penyebab performa model vs naive baseline pada komoditas stabil vs volatil.
+18. **Presentasi:** Dokumentasi end-to-end lengkap, gambar beresolusi tinggi, lembar capaian proyek di Excel, dan siap dipresentasikan.
