@@ -224,4 +224,3 @@ Seluruh angka di bawah ini dihitung langsung oleh sel notebook dan dapat diverif
 | **15** | Modeling | Membangun model dan baseline sesuai tujuan | **Selesai** | Bagian F, G, H; K-Means, Hierarchical, SVM, RF, OLS, Ridge, LASSO. |
 | **16** | Evaluasi | Evaluasi model dengan metrik komparatif | **Selesai** | `regression_metrics_h7.csv` & `classification_metrics.csv`. |
 | **17** | Interpretasi | Penjelasan performa, kesalahan, dan insight bisnis | **Selesai** | Bagian F.3, G.3, H.4, I.2–I.3; profil klaster & analisis residual. |
-| **18** | Presentasi | Menyampaikan alur, temuan, dan batasan runtut | **Selesai** | Dokumentasi lengkap di `README.md` & lembar Excel. |
