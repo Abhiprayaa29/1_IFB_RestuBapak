@@ -12,15 +12,25 @@
 
 Repositori ini memuat kode, dokumentasi audit, visualisasi, dan laporan capaian lengkap untuk Proyek Akhir Data Science. Analisis memanfaatkan data panel harga harian pangan nasional (PIHPS Bank Indonesia) periode 1 Januari 2022 hingga 12 Februari 2026 yang mencakup 10 komoditas strategis, 3 kanal pasar (*produsen, pasar tradisional, pasar modern*), dan 34 provinsi di Indonesia.
 
-Seluruh materi perkuliahan dari **Modul I hingga Modul IX** diintegrasikan secara terpadu ke dalam 100 sel notebook yang dapat direproduksi secara *end-to-end*:
-* **Modul I & II:** Data Collection, Audit Integritas, Cleaning & Preprocessing (Bagian B & D)
-* **Modul III:** Feature Engineering & Exploratory Data Analysis (Bagian C & E)
-* **Modul IV:** Clustering I — K-Means (Bagian F)
-* **Modul V:** Clustering II — Hierarchical Clustering / Ward Linkage (Bagian F)
-* **Modul VI:** Classification I — Support Vector Machine / SVM (Bagian G)
-* **Modul VII:** Classification II — Random Forest Classifier (Bagian G)
-* **Modul VIII:** Regression I — Linear Regression (OLS), Ridge ($L_2$), dan LASSO ($L_1$) (Bagian H)
-* **Modul IX:** Regression II — Prediksi Deret Waktu & Evaluasi Uji Kronologis (Bagian H)
+Proyek ini dirancang selaras secara utuh dengan **Silabus Teori Perkuliahan (Pertemuan 1 s.d. 13)** dan **Silabus Praktikum (Modul I s.d. IX)** ke dalam 100 sel notebook yang dapat direproduksi secara *end-to-end*:
+
+### Matriks Keselarasan Materi Perkuliahan Teori (Ptm 1 s.d. 13)
+
+| Ptm | Topik Perkuliahan | Implementasi pada Proyek PIHPS | Lokasi Bukti Notebook |
+|:---:|---|---|---|
+| **1** | **Mathematical Review** | Standardisasi Z-score, korelasi Pearson, dekomposisi siklikal sinus/kosinus, jarak Euclidean, fungsi loss kuadratik OLS, dan penalti regularisasi norma $L_1$ & $L_2$. | Bagian B.6, E.3, F.2, H.2 |
+| **2** | **CRISP-DM** | Penerapan 6 fase CRISP-DM terstruktur: *Business Understanding* $\rightarrow$ *Data Understanding* $\rightarrow$ *Data Preparation* $\rightarrow$ *Modeling* $\rightarrow$ *Evaluation* $\rightarrow$ *Deployment / Policy*. | Bagian A s.d. I |
+| **3** | **EDA** | Analisis statistik deskriptif, pola harga antarkanal, tren temporal, peringkat volatilitas CV, disparitas wilayah, dan korelasi antarkomoditas. | Bagian C.1 s.d. C.6 |
+| **4** | **Data Preprocessing & Feature Selection** | Audit missing/outlier/duplikat, koreksi orde besaran (R1), karantina ramp (R2), eliminasi bias ffill akhir pekan, dan feature selection korelasi *within-series*. | Bagian D.3–D.7, E.6–E.7 |
+| **5** | **Feature Engineering** | Pembuatan 15 fitur temporal: autoregresif lag (`lag_7`, `lag_14`, `lag_30`), rolling statistics (`ma_7`, `ma_14`, `ma_30`, `std_7`, `std_30`), kalender siklikal, dan musim panen. | Bagian E.3 |
+| **6** | **Review & Hands-on Practice** | Pengujian ketat kebocoran informasi (*leakage test*), log audit perubahan nilai (*before-after cleaning*). | Bagian D.6, E.4 |
+| **7** | **Cluster** | Unsupervised learning: K-Means (optimasi Elbow & Silhouette) dan Hierarchical Clustering (Dendrogram Ward Linkage) pada 34 provinsi. | Bagian F.1 s.d. F.3 |
+| **8** | **UTS** | Evaluasi paruh pertama (Pondasi Data, Cleaning, EDA, Preprocessing, Feature Selection). | Capaian 1–14 Selesai |
+| **9** | **Supervised Learning** | Formulasi target pembelajaran terawasi: target biner lonjakan harga H+7 (Klasifikasi) dan target kontinu nominal H+7 (Regresi). | Bagian G.1, H.1 |
+| **10** | **SVM** | Support Vector Machine (`SGDClassifier` Hinge Loss dengan `class_weight='balanced'`) untuk klasifikasi deteksi dini lonjakan pangan $\ge 5\%$. | Bagian G.2 |
+| **11** | **Regression** | Evaluasi perbandingan model regresi parametrik: Linear Regression (OLS), Ridge Regression ($L_2$), dan LASSO Regression ($L_1$). | Bagian H.2 |
+| **12** | **Time Series** | Pemodelan deret waktu panel bebas kebocoran, evaluasi perbandingan terhadap *Naive Persistence Benchmark* ($\hat{y}_{t+7} = \text{lag\_7}$), dan validasi uji kronologis. | Bagian E.1, H.1 s.d. H.4 |
+| **13** | **Optimasi & Trade-off Analysis** | **1)** Optimasi $k$ klaster (Inersia vs Silhouette). **2)** Trade-off Klasifikasi: Precision vs Recall (mengutamakan Recall 84,2% demi mitigasi risiko pangan). **3)** Trade-off Regularisasi Bias-Variance: Penalaan $\alpha$ Ridge/LASSO vs OLS. **4)** Trade-off Metrik: Perbandingan MAE vs RMSE komoditas stabil vs volatil. | Bagian F.2, G.3, H.2, H.4 |
 
 ---
 
