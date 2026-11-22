@@ -96,8 +96,8 @@ Seluruh angka di bawah ini dihitung langsung oleh sel notebook dan dapat diverif
 | **Baris dataset siap model (H+7)** | 1.320.376 baris $\times$ 28 kolom | Bagian E.3 |
 | **Pembagian data kronologis** | Latih: 920.911 (70%) • Validasi: 199.610 (15%) • Uji: 199.855 (15%) | Bagian E.5 |
 | **Klaster provinsi optimal (K-Means)** | $k = 3$ (Silhouette Score puncak & penurunan inersia elbow) | Bagian F.2 |
-| **Recall deteksi dini lonjakan ($\ge 5\%$)** | SVM: 84,2% • Random Forest: 81,0% (ROC-AUC: 0,825) | Bagian G.2 |
-| **Performa RMSE Regresi Deret Waktu** | OLS: 5.288,52 • Ridge: 5.290,61 • LASSO: 5.296,15 (vs Naive: 5.388,91) | Bagian H.2 |
+| **Recall deteksi dini lonjakan ($\ge 5\%$)** | Random Forest: 80,2% (ROC-AUC: 0,769) • Linear SVM: 45,5% | Bagian G.4 |
+| **Performa RMSE Regresi Deret Waktu** | OLS: 5.360,65 • Ridge: 5.361,19 • LASSO: 5.369,42 (vs Naive: 5.388,91) | Bagian H.4 |
 
 ---
 
